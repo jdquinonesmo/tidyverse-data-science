@@ -1,22 +1,28 @@
-#Data Visualization - 11 de Mayo de 2018
-library(tidyverse)
+############################################
+##VERSIONES CON LAS QUE SE HIZO ESTA PARTE##
+##                2021-01-28              ##
+############################################
+# v ggplot2 3.3.2     v purrr   0.3.4
+# v tibble  3.0.1     v dplyr   1.0.2
+# v tidyr   1.1.2     v stringr 1.4.0
+# v readr   1.3.1     v forcats 0.5.0
+# -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+# x dplyr::filter() masks stats::filter()
+# x dplyr::lag()    masks stats::lag()
 
-#tidyverse 1.2.1 â”€â”€
-#âœ” ggplot2 2.2.1     âœ” purrr   0.2.4
-#âœ” tibble  1.4.2     âœ” dplyr   0.7.4
-#âœ” tidyr   0.8.0     âœ” stringr 1.3.1
-#âœ” readr   1.1.1     âœ” forcats 0.3.0
 
-#Los coches con motor mÃ¡s grande consumen mÃ¡s combustible 
-#que los coches con motor mÃ¡s pequeÃ±o.
-#La relaciÃ³n consumo / tamaÃ±o es lineal? Es no lineal? Es exponencial?
-#Es positiva? Es negativa?
+#PREGUNTAS:
+#¿LOS COCHES CON MOTOR MÁS GRANDE CONSUMEN MÁS COMBUSTIBLE?
+#¿LA RELACIÓN CONSUMO/TAMAÑO ES LINEAL?¿NO ES LINEAL?¿POSITIVA O NEGATIVA?
 
 View(mpg)
-?mpg #help(mpg)
-# displ: tamaÃ±o del motor del coche en litros
-# hwy: nÃºmero de millas recorridas en autopista por galÃ³n de combustible (3.785411784 litros)
+help(mpg) # entrega información del dataset 
 
+#visualización
+#Se representará en las abscisas displ: tamaño del motor en litros (cilindraje)
+#En las ordenadas estará hwy: millas recorridas por galón en una carretera.
+ggplot(data=mpg)+
+  geom_point(mapping=aes(x=displ, y=hwy))
 ggplot(data = mpg)
 
 mpg %>% ggplot()
