@@ -15,7 +15,7 @@
 #¿LOS COCHES CON MOTOR MÁS GRANDE CONSUMEN MÁS COMBUSTIBLE?
 #¿LA RELACIÓN CONSUMO/TAMAÑO ES LINEAL?¿NO ES LINEAL?¿POSITIVA O NEGATIVA?
 
-View(mpg)
+View(mpg) #mpg es una base de datos que ya viene con el paquete
 help(mpg) # entrega información del dataset 
 
 #visualización
