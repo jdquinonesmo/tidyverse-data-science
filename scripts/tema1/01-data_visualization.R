@@ -42,7 +42,7 @@ ggplot(data = mpg) +
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 
-#TamaÃ±o de los puntos (conviene que sea numérico)
+#Tamaño de los puntos (conviene que sea numérico)
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, size = class))
 
