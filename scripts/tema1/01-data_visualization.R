@@ -9,42 +9,40 @@
 # -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 # x dplyr::filter() masks stats::filter()
 # x dplyr::lag()    masks stats::lag()
-
+library(tidyverse)
 
 #PREGUNTAS:
 #øLOS COCHES CON MOTOR M¡S GRANDE CONSUMEN M¡S COMBUSTIBLE?
 #øLA RELACI”N CONSUMO/TAMA—O ES LINEAL?øNO ES LINEAL?øPOSITIVA O NEGATIVA?
 
-View(mpg) #mpg es una base de datos que ya viene con el paquete
+View(mpg) #mpg es una base de datos que ya viene con el paquete ggplot2
 help(mpg) # entrega informaciÛn del dataset 
-
+summary(mpg)
 #visualizaciÛn
 #Se representar· en las abscisas displ: tamaÒo del motor en litros (cilindraje)
 #En las ordenadas estar· hwy: millas recorridas por galÛn en una carretera.
 ggplot(data=mpg)+
-  geom_point(mapping=aes(x=displ, y=hwy))
-ggplot(data = mpg)
+  geom_point(mapping=aes(x=displ, y=hwy)) # crea una nube de puntos o scatterplot
+#cada + que aÒada a la gr·fica es una capa.
 
-mpg %>% ggplot()
+## Tarea 1
+ggplot(data=mpg)+geom_point(mapping=aes(x=cyl, y=hwy))
+ggplot(data=mpg)+geom_point(mapping=aes(x=cyl, y=cty))
 
 
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy))
-
-#PLANTILLA PARA HACER UNA REPRESENTACI√ìN GR√ÅFICA CON GGPLOT
-#ggplot(data = <DATA_FRAME>) +
-#  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
 
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = class, y = drv))
 
 
 
-#Color de los puntos
+## Color de los puntos. Clasificados por tipo de vehÌculo "class"
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 
-#Tama√±o de los puntos (conviene que sea num√©rico)
+#Tama√±o de los puntos (conviene que sea numÈrico)
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, size = class))
 
