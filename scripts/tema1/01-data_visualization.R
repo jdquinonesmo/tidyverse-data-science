@@ -54,12 +54,12 @@ ggplot(data = mpg) +
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, shape = class))
 
-#ElecciÃ³n manual de estÃ©ticas
+#Elección manual de estéticas
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy), color = "red")
 # color = nombre del color en formato string
-# size = tamaÃ±o del punto en mm
-# shape = forma del punto con nÃºmeros desde el 0 al 25
+# size = tamaño del punto en mm
+# shape = forma del punto con números desde el 0 al 25
 # 0 - 14: son formas huecas y por tanto solo se le puede cambiar el color
 # 15- 20: son formas rellenas de color, por tanto se le puede cambiar el color
 # 21 - 25: son formas con borde y relleno, y se les puede cambiar el color (borde) y el fill (relleno)
@@ -76,8 +76,8 @@ ggplot() +
 
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy), 
-             shape = 23, size = 10, color = "red", 
-             fill = 'yellow')
+             shape = 23, size = 5, color = "black", 
+             fill = 'red')
 
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x=displ, y = hwy, color = displ<5))
