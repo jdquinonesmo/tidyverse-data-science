@@ -64,6 +64,7 @@ ggplot(data = mpg) +
 # 15- 20: son formas rellenas de color, por tanto se le puede cambiar el color
 # 21 - 25: son formas con borde y relleno, y se les puede cambiar el color (borde) y el fill (relleno)
 
+## Ver formas
 d=data.frame(p=c(0:25))
 ggplot() +
   scale_y_continuous(name="") +
