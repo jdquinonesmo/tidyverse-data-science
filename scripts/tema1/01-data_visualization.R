@@ -108,7 +108,7 @@ ggplot(data = mpg) +
 # facet_wrap(~<FORMULA_VARIABLE>): la variable debe ser discreta
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy)) +
-  facet_wrap(~class, nrow = 3)
+  facet_wrap(~class, nrow = 3,as.table = T)
 
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy)) +
@@ -134,6 +134,8 @@ ggplot(data = mpg) +
 ggplot(data = mpg) +
   geom_point(mapping = aes(x=displ, y = hwy)) +
   facet_grid(drv~.)
+#Punto 5
+?facet_wrap
 
 #Diferentes geometrías
 ggplot(data = mpg) + 
