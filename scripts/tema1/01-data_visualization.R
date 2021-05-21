@@ -104,7 +104,7 @@ ggplot(data = mpg) +
               color="white", stroke =1.6 ) #Stroke es para cambiar el grosor de los bordes de las formas con bordes.
 
 
-##FACETS
+##FACETS: divide el gráfico general en varias gráficas, clasificadas según una variable discreta elegida 
 # facet_wrap(~<FORMULA_VARIABLE>): la variable debe ser discreta
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy)) +
@@ -112,22 +112,30 @@ ggplot(data = mpg) +
 
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy)) +
-  facet_wrap(~displ, nrow = 3)
+  facet_wrap(~cyl, nrow = 1)
 
-# facet_grid(<FORMULA_VARIABLE1>~<FORMULA_VARIABLE2>)
+# facet_grid(<FORMULA_VARIABLE1>~<FORMULA_VARIABLE2>): divide las gráficas según
+#clasificación con dos variables (factorial)
 ggplot(data = mpg) +
   geom_point(mapping = aes(x=displ, y = hwy)) +
   facet_grid(drv~cyl)
 
+#Tarea 3
+#Punto 2
+ggplot(data=mpg)+
+geom_point(mapping=aes(x=drv, y=cyl))
+unique(mpg$cyl)
+
+#Punto 3
 ggplot(data = mpg) +
   geom_point(mapping = aes(x=displ, y = hwy)) +
-  facet_grid(.~cyl)
+  facet_grid(.~cyl) #con el punto el faced_grid es igual que el _wrap
 
 ggplot(data = mpg) +
   geom_point(mapping = aes(x=displ, y = hwy)) +
   facet_grid(drv~.)
 
-#Diferentes geometrÃ­as
+#Diferentes geometrías
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x=displ, y =hwy))
 
