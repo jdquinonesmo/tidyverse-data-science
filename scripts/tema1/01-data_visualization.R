@@ -194,6 +194,10 @@ ggplot(data = mpg, mapping = aes(x=displ, y = hwy)) +
   geom_point() + 
   geom_smooth(mapping = aes(group=drv), se=F)
 
+ggplot(data=mpg)+
+  geom_point(mapping=aes(x=displ, y=hwy))+
+  geom_smooth(mapping=aes(x=displ, y=hwy,group=drv),se=F)
+
 #Ejercicio 7
 ggplot(data = mpg, mapping = aes(x=displ, y = hwy, col=drv)) + 
   geom_point() + 
@@ -203,6 +207,10 @@ ggplot(data = mpg, mapping = aes(x=displ, y = hwy, col=drv)) +
 ggplot(data = mpg, mapping = aes(x=displ, y = hwy)) + 
   geom_point(mapping = aes(col=drv, shape = drv)) + 
   geom_smooth( se=F)
+
+ggplot(data=mpg)+
+  geom_point(mapping=aes(x=displ, y=hwy, shape=drv, color=drv))+
+  geom_smooth(mapping=aes(x=displ, y=hwy),se=F)
 
 #Ejercicio 9
 ggplot(data = mpg, mapping = aes(x=displ, y = hwy) ) + 
