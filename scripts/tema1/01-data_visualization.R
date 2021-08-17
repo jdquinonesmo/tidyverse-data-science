@@ -268,6 +268,14 @@ ggplot(data = diamonds) +
 
 ?stat_smooth
 
+#punto 5.)
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, y = ..prop..)) #este código no cierra la suma=1 en proporciones
+
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = color, y = ..prop.., group=1))
+
+
 #Colores y formas de los grÃ¡ficos
 
 
