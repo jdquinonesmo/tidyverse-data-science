@@ -124,7 +124,7 @@ ggplot(data = mpg) +
 #Punto 2
 ggplot(data=mpg)+
 geom_point(mapping=aes(x=drv, y=cyl))
-unique(mpg$cyl)
+unique(mpg$cyl) #Ver niveles de un factor o valores diferentes en un vector.
 
 #Punto 3
 ggplot(data = mpg) +
@@ -258,6 +258,15 @@ ggplot(data = diamonds) +
     fun.ymax = max, 
     fun.y = median
   )
+#### TAREA 5 ####
+
+
+?geom_col
+
+ggplot(data = diamonds) + 
+  geom_col(mapping = aes(x = cut, y = depth))
+
+?stat_smooth
 
 #Colores y formas de los gráficos
 
