@@ -396,3 +396,40 @@ ggplot(data = diamonds) +
        caption = "Dos variables cruzadas de diamonds",
        subtitle="Aprender ggplot puede ser hasta divertido ;)")
 
+#############
+## TAREA 6 ##
+#############
+
+#punto 1) 
+library(ggplot2)
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy, color=as.factor(cyl))) + 
+  geom_point()+
+  coord_fixed()+
+  geom_smooth()+
+  geom_abline(intercept = 5)
+
+#punto 2) 
+?geom_jitter
+
+#punto 3)
+ggplot(mpg, aes(cty, hwy)) +
+  geom_point()
+ggplot(mpg, aes(cty, hwy)) +
+  geom_jitter()
+ggplot(mpg, aes(cty, hwy)) +
+  geom_count()
+
+#punto 4)
+
+f1<-ggplot(diamonds, aes(cut,depth,color=color))+
+  geom_boxplot()
+f2<-ggplot(diamonds, aes(cut,depth,color=color))+
+  geom_boxplot(position="dodge2")
+f3<-ggplot(diamonds, aes(cut,depth,color=color))+
+  geom_boxplot(position="dodge")
+f4<-ggplot(diamonds, aes(cut,depth,color=color))+
+  geom_boxplot(position="identity")
+library(cowplot)
+plot_grid(f1,f2,f3,f4)
+
+
