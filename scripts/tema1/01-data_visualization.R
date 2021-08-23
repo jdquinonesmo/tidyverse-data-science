@@ -451,3 +451,5 @@ ggplot(diamonds, aes(cut,fill=color))+
 
 #punto 8) 
 ?coord_fixed
+
+
