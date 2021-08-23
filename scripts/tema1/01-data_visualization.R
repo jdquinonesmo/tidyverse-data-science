@@ -404,9 +404,11 @@ ggplot(data = diamonds) +
 library(ggplot2)
 ggplot(data = mpg, mapping = aes(x = cty, y = hwy, color=as.factor(cyl))) + 
   geom_point()+
-  coord_fixed()+
+  coord_fixed(1)+
   geom_smooth()+
-  geom_abline(intercept = 5)
+  geom_abline(intercept = 5)+
+  geom_hline(yintercept=10)
+
 
 #punto 2) 
 ?geom_jitter
@@ -432,4 +434,20 @@ f4<-ggplot(diamonds, aes(cut,depth,color=color))+
 library(cowplot)
 plot_grid(f1,f2,f3,f4)
 
+#punto 5)
 
+ggplot(diamonds, aes(cut,fill=color))+
+geom_bar()
+
+ggplot(diamonds, aes(cut,fill=color))+
+  geom_bar()+
+  coord_polar()
+
+#punto 6)
+?labs
+
+#punto 7) 
+?coord_map
+
+#punto 8) 
+?coord_fixed
