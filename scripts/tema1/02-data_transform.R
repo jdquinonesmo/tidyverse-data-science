@@ -11,13 +11,13 @@ head(flights)
 tail(flights)
 
 #tibble es un data frame mejorado para tidyverse
-## * int -> nÃºmeros enteros
-## * dbl -> nÃºmeros reales (double)
+## * int -> números enteros
+## * dbl -> números reales (double)
 ## * chr -> vector de caracteres o strings
 ## * dttm -> date + time 
 ## * lgl -> logical, contiene valores booleanos (T o F)
-## * fctr -> factor, variables categÃ³ricas
-## * date -> fecha (dÃ­a, mes y aÃ±o)
+## * fctr -> factor, variables categóricas
+## * date -> fecha (dia, mes y año)
 
 ## * filter() -> filtrar observaciones a partir de valores concretos
 ## * arrange() -> reordenar las filas
