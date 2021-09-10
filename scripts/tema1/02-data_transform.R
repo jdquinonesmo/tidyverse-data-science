@@ -73,11 +73,11 @@ NA / 5
 NA == NA
 
 
-#La tía Mery tiene una edad desconocida. No se como de vieja es...
+#La tia Mery tiene una edad desconocida. No se como de vieja es...
 age.mery <- NA
-#El tío John también hace mucho que no lo veo, y no se cuantos años debe tener...
+#El tio John también hace mucho que no lo veo, y no se cuantos años debe tener...
 age.john <- NA
-#¿Deben de tener la misma edad John y Mery?
+#�Deben de tener la misma edad John y Mery?
 age.mery == age.john
 
 is.na(age.mery)
@@ -97,13 +97,13 @@ filter(flights, dest == "SFO" | dest == "OAK")
 filter(flights, carrier == "UA" | carrier == "AA")
 
 #Ejercicio 4
-filter(flights, month == 4 | month == 5 | month == 6)
+filter(flights, month %in% c(4,5,6))
 
 #Ejercicio 5
-filter(flights, arr_delay > 60, dep_delay <= 60)
+filter(flights, arr_delay > 60, dep_delay < 60)
 
 #Ejercicio 6
-filter(flights, arr_delay > 60, dep_delay <= 30)
+filter(flights, arr_delay > 60, dep_delay < 30)
 
 #Ejercicio 7
 filter(flights, hour >= 0, hour < 7)
@@ -112,12 +112,17 @@ filter(flights, hour >= 0, hour < 7)
 filter(flights, between(hour,0,6))
 
 #Ejercicio 9
-filter(flights, is.na(dep_time))
+nrow(filter(flights, is.na(dep_delay)))
 
+#Ejercicio 10
+nrow(filter(flights, is.na(time_hour)))
 
-head(flights, 10)
+#Ejercicio 11 
 
-tail(flights, 10)
+NA^0
+NA|TRUE
+FALSE&NA
+NA*0
 
 ### ARRANGE
 sorted_date <- arrange(flights, year, month, day)
