@@ -183,11 +183,13 @@ sorted_date
 arrange(flights,!is.na(dep_time))
 
 #Ejercicio 2
-arrange(flights, desc(dep_delay))[1,]
-arrange(flights, dep_delay)[1,]
+d<-arrange(flights, desc(dep_delay))
+View(d)
+dd<-filter(flights, dep_delay<0)
+View(dd)
 
 #Ejercicio 3
-View(arrange(flights, desc(distance/air_time)))
+View(arrange(flights, (air_time+dep_delay)/distance))
 
 #Ejercicio 4 y 5
 View(arrange(flights, desc(distance))[1,])
@@ -197,13 +199,17 @@ View(arrange(flights, distance)[1,])
 select(flights,dep_time, dep_delay, arr_time, arr_delay)
 select(flights,starts_with("dep"), starts_with("arr"))
 select(flights,ends_with("time"), ends_with("delay") -starts_with("sched"),-starts_with("air") )
+flights[,c(4,6,7,9)]
 
 #Ejercicio 7
 select(flights, distance, distance)
 
 
 #Ejercicio 8 y 9
-select(flights, one_of(c("year", "month", "day", "dep_delay", "arr_delay")))
+v<-c("year", "month", "day", "dep_delay", "arr_delay")
+select(flights, one_of(v)) # Si no creara un vector con los nombres de las columnas o variables
+                           # y el vectro fuera sin comilla en los nombres, se sobreponen en un mismo vector, las variables,
+                           # con las comillas se separan los nombres y es útil para no escribir siempre todas las variables en la función select(). 
 
 select(flights, contains("TIME"))
 
