@@ -297,21 +297,21 @@ ntile(df, n = 4)
 transmute(flights, 
           dep_delay,
           ntile(dep_delay, n = 100))
-
+View(flights)
 
 #Ejercicio 1
 transmute(flights, 
           dep_time, sched_dep_time,
-          new_dep_time = 60*dep_time %/% 100 + dep_time %% 100 , 
-          new_sched_dep_time = 60*sched_dep_time %/% 100 + sched_dep_time %% 100
+          minutos_dep_time = 60*dep_time %/% 100 + dep_time %% 100 , 
+          minutos_sched_dep_time = 60*sched_dep_time %/% 100 + sched_dep_time %% 100
           )
 
 #Ejercicio 2
-transmute(flights,
-          air_time, 
+View(transmute(flights,
+          air_time, arr_time-dep_time, 
           new_dep_time = 60*dep_time %/% 100 + dep_time %% 100 , 
           new_arr_time = 60*arr_time %/% 100 + arr_time %% 100,
-          new_air_time = new_arr_time - new_dep_time)
+          new_air_time = new_arr_time - new_dep_time))
 
 
 #Ejercicio 3
@@ -323,14 +323,12 @@ transmute(flights,
           new_delay==dep_delay)
 
 #Ejercicio 4
-arrange(mutate(flights,
-          r_delay = min_rank(dep_delay)),
-         r_delay
-        )[1:10,]
+View(arrange(mutate(flights,delay=min_rank(dep_delay)),delay
+            )[1:10,]
+     )
 
-
-
-
+#Ejercicio 5 
+1:6 + 1:20
 ### SUMMARISE
 
 summarise(flights, delay = mean(dep_delay, na.rm = T))
