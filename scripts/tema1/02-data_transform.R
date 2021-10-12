@@ -462,7 +462,7 @@ batters %>%
 
 
 
-# * Medidas de Centralizaci贸n
+# * Medidas de Centralizaci髇
 not_cancelled %>%
   group_by(carrier) %>%
   summarise(
@@ -470,7 +470,7 @@ not_cancelled %>%
     mean2 = mean(arr_delay[arr_delay>0]),
     median = median(arr_delay)
   )
-# * Medidas de dispersi贸n
+# * Medidas de dispersi髇
 not_cancelled %>%
   group_by(carrier) %>%
   summarise(
@@ -493,7 +493,7 @@ not_cancelled %>%
     last = max(arr_delay)
     )
 
-# Medida de posici贸n 
+# Medida de posici髇 
 not_cancelled %>%
   group_by(carrier) %>%
   arrange(dep_time) %>%
@@ -528,7 +528,7 @@ not_cancelled %>% count(dest)
 
 not_cancelled %>% count(tailnum, wt = distance)
 
-## sum /mean de valores l贸gicos 
+## sum /mean de valores l骻icos 
 not_cancelled %>%
   group_by(year, month, day) %>%
   summarise(n_prior_5 = sum(dep_time < 500))
@@ -539,7 +539,7 @@ not_cancelled %>%
   arrange(desc(more_than_hour_delay))
 
 
-## Agrupaciones m煤ltiples
+## Agrupaciones m鷏tiples
 daily <- group_by(flights, year, month, day)
 (per_day <- summarise(daily, n_fl = n()))
 (per_month <- summarise(per_day, n_fl = sum(n_fl)))
