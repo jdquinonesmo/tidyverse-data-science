@@ -2,19 +2,7 @@
 library(tidyverse)
 library(nycflights13)
 # PUNTO 1.) #
-View(flights)
 
-t1<-flights %>%
-  group_by(carrier) %>% 
-  summarise(distancia=mean(distance))  
-  View(arrange(t1, distancia))
-  ggplot(t1, mapping = aes(x=reorder(carrier,-distancia), y=distancia, fill=carrier))+
-    geom_col()
-
-ggplot(flights, mapping=aes(x=reorder(carrier,-dep_delay), y=dep_delay))+
-  stat_summary(fun.ymin = min,
-               fun.ymax = max,
-               fun.y = median)
   
 #a) Compañía con menor porcentaje de vuelos retrasados
 
@@ -49,4 +37,21 @@ ggplot(flights, mapping=aes(x=reorder(carrier,-dep_delay), y=dep_delay))+
 #e) Vuelos considerados que llegan a tiempo.
    
    prop_atiempo=sum(t2$arr_delay<=30)/length(t2$arr_delay)
+   
+# PUNTO 2.)
+   
+   not_cancelled<-flights%>% 
+     filter(!is.na(dep_delay), !is.na(arr_delay))
+   
+   not_cancelled %>% count(dest)
+   
+   not_cancelled %>% group_by(dest) %>% summarise(n())
+   
+   not_cancelled %>% count(tailnum, wt = distance)
+   
+   not_cancelled %>% group_by(tailnum) %>% summarise(sum(distance))
+  
+# PUNTO 3.) 
+   
+  view(flights) 
    
