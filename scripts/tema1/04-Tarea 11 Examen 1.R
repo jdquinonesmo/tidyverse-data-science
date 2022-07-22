@@ -51,7 +51,14 @@ library(nycflights13)
    
    not_cancelled %>% group_by(tailnum) %>% summarise(sum(distance))
   
-# PUNTO 3.) 
+# PUNTO 4.) 
    
-  view(flights) 
-   
+  View(flights) 
+  t4 <- flights %>% group_by(day) %>% summarise(n=sum(is.na(arr_time)), N=n(), p=n/N)
+  ggplot(t4, mapping = aes(x = day, y = p))+
+    geom_point()
+  ggplot(t4, mapping = aes(x = day, y = N))+
+    geom_point()
+  ggplot(t4, mapping = aes(x = day, y = n))+
+    geom_point()
+ 
