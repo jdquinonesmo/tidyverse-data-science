@@ -139,7 +139,8 @@ ggplot(good_diamonds) +
 summary(good_diamonds$price)
 
 ggplot(good_diamonds)+
-  geom_point(mapping = aes(x = carat, y = price, color= clarity, shape=cut ))
+  geom_point(mapping = aes(x = carat, y = price, 
+                           color= clarity, shape=cut ))
   
 # Ejercicio 3
 ggplot(diamonds) + 
@@ -149,6 +150,11 @@ ggplot(diamonds) +
 diamonds %>% 
   filter(between(carat, 0.95, 1.05)) %>%
   count(cut_width(carat, 0.01))
+
+good_diamonds %>%
+  filter(carat == 0.99 | carat == 1) %>%
+  count(carat)
+
 
 # Ejercicio 4
 ggplot(diamonds) + 
@@ -379,3 +385,5 @@ diamonds %>%
 ggplot(data = diamonds) + 
   geom_point(mapping = aes(x = x, y = y)) + 
   coord_cartesian(xlim = c(4,12), ylim = c(4,12))
+
+
