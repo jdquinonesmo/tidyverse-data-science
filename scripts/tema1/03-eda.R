@@ -111,23 +111,35 @@ nycflights13::flights %>%
 
 
 #Ejercicio 1
-ggplot(diamonds) + 
-  geom_histogram(mapping = aes(x = x), binwidth = 0.5) +
-  coord_cartesian(ylim = c(0,100))
+a<- ggplot(diamonds) + 
+  geom_histogram(mapping = aes(x = x, color=cut), binwidth = 0.05)+
+  coord_cartesian(xlim=c(3,10))
 
-ggplot(diamonds) + 
-  geom_histogram(mapping = aes(x = y), binwidth = 0.5) +
-  coord_cartesian(ylim = c(0,100))
+b<- ggplot(diamonds) + 
+  geom_histogram(mapping = aes(x = y, color=cut), binwidth = 0.05)+
+  coord_cartesian(xlim=c(0,10))
 
-ggplot(diamonds) + 
-  geom_histogram(mapping = aes(x = z), binwidth = 0.5) +
-  coord_cartesian(ylim = c(0,100))
+c<- ggplot(diamonds) + 
+  geom_histogram(mapping = aes(x = z, color=cut), binwidth = 0.05)+
+  coord_cartesian(xlim=c(0,10))
+library(cowplot)
+plot_grid(a,b,c)
+
+pairs(data=good_diamonds,~ price + x + y + z)
+colnames(diamonds)
+
+
+
 
 # Ejercicio 2
-ggplot(diamonds) + 
-  geom_histogram(mapping = aes(x = price), binwidth = 10) +
+ggplot(good_diamonds) + 
+  geom_histogram(mapping = aes(x = price), binwidth = 1) +
   coord_cartesian(xlim = c(1400,1600))
 
+summary(good_diamonds$price)
+ffff
+  
+  
 # Ejercicio 3
 ggplot(diamonds) + 
   geom_histogram(mapping = aes(x = carat), binwidth = 0.01)+
