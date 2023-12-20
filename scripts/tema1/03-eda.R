@@ -161,6 +161,10 @@ ggplot(diamonds) +
   geom_histogram(mapping = aes(x = carat), binwidth = 0.01)+
   coord_cartesian(xlim = c(0.95,1.05))
 
+ggplot(diamonds) + 
+  geom_histogram(mapping = aes(x = carat), binwidth = 0.01)+
+  xlim(0.95,1.05)
+
 # Ejercicio 4
 na_diamonds <-good_diamonds %>%
   mutate(cut2 = ifelse(cut == "Fair", NA, cut))
