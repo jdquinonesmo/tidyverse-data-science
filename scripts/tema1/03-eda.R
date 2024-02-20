@@ -165,15 +165,17 @@ ggplot(diamonds) +
   geom_histogram(mapping = aes(x = carat), binwidth = 0.01)+
   xlim(0.95,1.05)
 
-# Ejercicio 4
+# Ejercicio 5
 na_diamonds <-good_diamonds %>%
   mutate(cut2 = ifelse(cut == "Fair", NA, cut))
 
 ggplot(na_diamonds) + 
   geom_bar(mapping = aes(x = cut2))
 
-ggplot(good_diamonds) + 
-  geom_histogram(mapping = aes(x = y), binwidth = 1)
+ggplot(na_diamonds) + 
+  geom_histogram(mapping = aes(x = cut2), binwidth = 1)
+
+group_by(na_diamonds, cut2) %>% summarise(n=sum(is.na(cut2)))
 
 
 #### COVARIACIÓN
