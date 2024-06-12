@@ -294,19 +294,56 @@ nycflights13::flights %>%
     sched_dep_time = sched_hour + sched_min/60
   ) %>%
   ggplot(mapping = aes(sched_dep_time)) + 
-  geom_freqpoly(mapping = aes(y = ..density.., color = cancelled), binwidth = 1/4)
+  geom_freqpoly(mapping = aes(y = ..density.., color = cancelled))
 
+#Ejercicio 2 
+
+ggplot(diamonds, mapping = aes(x = carat, y = price, size = z))+
+  geom_point()
+
+ggplot(diamonds, mapping = aes(x = cut, y = clarity))+
+  geom_count()
+
+ggplot(diamonds, mapping = aes(x = cut, y = color))+
+  geom_count()
+
+ggplot(diamonds, mapping = aes(x = cut, y = carat))+
+  geom_boxplot()
+
+diamonds %>%
+  count(cut, color) %>%
+  ggplot(aes(color, cut, fill = n)) +
+  geom_tile()
+
+ggplot(good_diamonds)+
+  geom_point(mapping = aes(x = carat, y = price, 
+                           color= cut, shape = clarity ))
 
 #Ejercicio 3
 install.packages("ggstance")
 library(ggstance)
-
-ggplot(data = mpg,mapping = aes(x = hwy,
-                                y = reorder(class, hwy, FUN = median),
+library(tidyverse)
+ggplot(data = mpg, mapping = aes(y = hwy,
+                                x = reorder(class, hwy, FUN = median),
                                 fill = factor(class)
                                 )
        ) + 
-  geom_boxploth() 
+  geom_boxploth()
+
+ggplot(data = mpg, mapping = aes(x = hwy,
+                                 y = reorder(class, hwy, FUN = median),
+                                 fill = factor(class)
+                                 )
+       )+
+geom_boxplot()+
+  coord_flip()
+
+#geom_boxploth de ggstance grafica horizontalmente tal como se hayan puesto las 
+#aesthetics, coord_flip() cambia simplemente la orientación de las aesthetics, 
+#no importa cómo las hayan definido. Entonces con ggstance se ve afectada la 
+#generación del boxplot si no se pone la variable correcta en las aesthetics, 
+#no toma los puntos.
+
 
 
 #Ejercicio 4

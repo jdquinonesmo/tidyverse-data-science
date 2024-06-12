@@ -12,18 +12,18 @@
 library(tidyverse)
 
 #PREGUNTAS:
-#¿LOS COCHES CON MOTOR MÁS GRANDE CONSUMEN MÁS COMBUSTIBLE?
-#¿LA RELACIÓN CONSUMO/TAMAÑO ES LINEAL?¿NO ES LINEAL?¿POSITIVA O NEGATIVA?
+#?LOS COCHES CON MOTOR M?S GRANDE CONSUMEN M?S COMBUSTIBLE?
+#?LA RELACI?N CONSUMO/TAMA?O ES LINEAL??NO ES LINEAL??POSITIVA O NEGATIVA?
 
 View(mpg) #mpg es una base de datos que ya viene con el paquete ggplot2
-help(mpg) # entrega información del dataset 
+help(mpg) # entrega informaci?n del dataset 
 summary(mpg)
-#visualización
-#Se representará en las abscisas displ: tamaño del motor en litros (cilindraje)
-#En las ordenadas estará hwy: millas recorridas por galón en una carretera.
+#visualizaci?n
+#Se representar? en las abscisas displ: tama?o del motor en litros (cilindraje)
+#En las ordenadas estar? hwy: millas recorridas por gal?n en una carretera.
 ggplot(data=mpg)+
   geom_point(mapping=aes(x=displ, y=hwy)) # crea una nube de puntos o scatterplot
-#cada + que añada a la gráfica es una capa.
+#cada + que a?ada a la gr?fica es una capa.
 
 ## Tarea 1
 ggplot(data=mpg)+geom_point(mapping=aes(x=cyl, y=hwy))
@@ -38,11 +38,11 @@ ggplot(data = mpg) +
 
 
 
-## Color de los puntos. Clasificados por tipo de vehículo "class"
+## Color de los puntos. Clasificados por tipo de veh?culo "class"
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 
-#Tamaño de los puntos (conviene que sea numérico)
+#Tama?o de los puntos (conviene que sea num?rico)
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, size = class))
 
@@ -54,12 +54,12 @@ ggplot(data = mpg) +
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, shape = class))
 
-#Elección manual de estéticas
+#Elecci?n manual de est?ticas
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy), color = "red")
 # color = nombre del color en formato string
-# size = tamaño del punto en mm
-# shape = forma del punto con números desde el 0 al 25
+# size = tama?o del punto en mm
+# shape = forma del punto con n?meros desde el 0 al 25
 # 0 - 14: son formas huecas y por tanto solo se le puede cambiar el color
 # 15- 20: son formas rellenas de color, por tanto se le puede cambiar el color
 # 21 - 25: son formas con borde y relleno, y se les puede cambiar el color (borde) y el fill (relleno)
@@ -104,7 +104,7 @@ ggplot(data = mpg) +
               color="white", stroke =1.6 ) #Stroke es para cambiar el grosor de los bordes de las formas con bordes.
 
 
-##FACETS: divide el gráfico general en varias gráficas, clasificadas según una variable discreta elegida 
+##FACETS: divide el gr?fico general en varias gr?ficas, clasificadas seg?n una variable discreta elegida 
 # facet_wrap(~<FORMULA_VARIABLE>): la variable debe ser discreta
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy)) +
@@ -114,8 +114,8 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy)) +
   facet_wrap(~cyl, nrow = 1)
 
-# facet_grid(<FORMULA_VARIABLE1>~<FORMULA_VARIABLE2>): divide las gráficas según
-#clasificación con dos variables (factorial)
+# facet_grid(<FORMULA_VARIABLE1>~<FORMULA_VARIABLE2>): divide las gr?ficas seg?n
+#clasificaci?n con dos variables (factorial)
 ggplot(data = mpg) +
   geom_point(mapping = aes(x=displ, y = hwy)) +
   facet_grid(drv~cyl)
@@ -137,7 +137,7 @@ ggplot(data = mpg) +
 #Punto 5
 ?facet_wrap
 
-#Diferentes geometrías
+#Diferentes geometr?as
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x=displ, y =hwy))
 
@@ -270,7 +270,7 @@ ggplot(data = diamonds) +
 
 #punto 5.)
 ggplot(data = diamonds) + 
-  geom_bar(mapping = aes(x = cut, y = ..prop..)) #este código no cierra la suma=1 en proporciones
+  geom_bar(mapping = aes(x = cut, y = ..prop..)) #este c?digo no cierra la suma=1 en proporciones
 
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, fill = color, y = ..prop.., group=1))
