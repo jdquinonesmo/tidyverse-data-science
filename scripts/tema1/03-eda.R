@@ -350,26 +350,28 @@ geom_boxplot()+
 install.packages("lvplot")
 library(lvplot)
 
-ggplot(data = diamonds,
+a<-ggplot(data = diamonds,
+       mapping = aes(x = cut, y = price)
+) + geom_lv(k=4)  
+
+b<-ggplot(data = diamonds,
        mapping = aes(x = cut, y = price)
 ) + geom_lv() 
-
-ggplot(data = diamonds,
-       mapping = aes(x = cut, y = price)
-) + geom_boxplot() 
+library(patchwork)
+a+b
 
 
 #Ejercicio 5
-ggplot(diamonds, mapping = aes(x = cut, y = price)) + 
+a<-ggplot(diamonds, mapping = aes(x = cut, y = price)) + 
   geom_violin()
 
-ggplot(diamonds) + 
+b<-ggplot(diamonds) + 
   geom_histogram(mapping = aes(x = price), binwidth = 100)+ 
   facet_wrap(~cut, nrow = 3)
 
-ggplot(diamonds) + 
+c<-ggplot(diamonds) + 
   geom_freqpoly(mapping = aes(x = price, color = cut), binwidth = 100)
-
+a+b+c
 
 #Ejercicio 6
 install.packages("ggbeeswarm")
