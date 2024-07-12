@@ -1,4 +1,6 @@
 library(tidyverse)
+library(cowplot)
+library(patchwork)
 # Análisis exploratorio de datos
 # * Modelar
 # * Representación gráfica
@@ -357,7 +359,7 @@ a<-ggplot(data = diamonds,
 b<-ggplot(data = diamonds,
        mapping = aes(x = cut, y = price)
 ) + geom_lv() 
-library(patchwork)
+
 a+b
 
 
@@ -377,8 +379,13 @@ a+b+c
 install.packages("ggbeeswarm")
 library(ggbeeswarm)
 
-ggplot(diamonds,aes(cut, price)) + 
+a<-ggplot(diamonds,aes(x = cut, y = price)) + 
   geom_quasirandom()
+
+b<-ggplot(diamonds,aes(x = cut, y = price)) + 
+  geom_beeswarm(cex = 0.08)
+
+a+b
 
 #Ejercicio 7 
 diamonds %>%
