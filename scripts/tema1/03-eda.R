@@ -383,7 +383,7 @@ a<-ggplot(diamonds,aes(x = cut, y = price)) +
   geom_quasirandom()
 
 b<-ggplot(diamonds,aes(x = cut, y = price)) + 
-  geom_beeswarm(cex = 0.08)
+  geom_beeswarm(cex = 0.1)
 
 a+b
 
