@@ -399,31 +399,31 @@ diamonds %>%
   geom_tile(mapping = aes(fill = log(n)))
 
 #Ejercicio 8
-nycflights13::flights %>%
+
+library(nycflights13)
+View(flights)
+
   count(month, dest) %>%
   ggplot(mapping = aes(x = dest, y = month)) + 
   geom_tile(mapping = aes(fill = n))
 
 #Ejercicio 9
-ggplot(diamonds, aes(price, colour = cut_width(carat, 1.0))) +
+ggplot(diamonds, aes(price, colour = cut_width(carat, 0.3))) +
   geom_freqpoly()
 
 ggplot(diamonds, aes(price, colour = cut_number(carat, 5))) +
   geom_freqpoly()
 
-ggplot(diamonds, aes(carat, colour = cut_width(price, 5000))) +
+ggplot(diamonds, aes(carat, colour = cut_width(price, 3000))) +
   geom_freqpoly()
 
 #Ejercicio 10
-diamonds %>%
-  filter(between(x,2,20)) %>%
-  filter(between(y,2,20)) %>%
-  filter(between(z,2,20)) %>%
+good_diamonds %>%
   ggplot(aes(price, x*y*z)) + 
-   geom_bin2d()
+   geom_hex()
 
 #Ejercicio 11
-diamonds %>%
+good_diamonds %>%
   ggplot(aes(price, colour = cut)) + 
   geom_freqpoly() + 
   facet_wrap(~cut_number(carat, 5), nrow = 2)
@@ -432,6 +432,11 @@ diamonds %>%
   ggplot(aes(price)) + 
   geom_freqpoly() + 
   facet_wrap(cut~cut_number(carat, 5))
+
+good_diamonds %>%
+  ggplot(aes(carat, price)) + 
+  geom_hex() + 
+  facet_wrap(~cut)
 
 #Ejercicio 12
 ggplot(data = diamonds) + 
