@@ -1,5 +1,5 @@
-vignette("tibble")
-library(tidyverse)
+vignette("tibble") #ayuda de tibble, documentación
+library(tidyverse) 
 
 View(iris)
 class(iris)
