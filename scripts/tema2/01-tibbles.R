@@ -97,8 +97,9 @@ dplyr::select()
 
 
 # Ejercicio 1
-mtcars
+View(mtcars)
 nycflights13::flights 
+View(as.tibble(mtcars))
 
 # Ejercicio 2
 df <- data.frame(abc = 1, xyz = "a")
