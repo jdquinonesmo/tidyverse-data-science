@@ -114,9 +114,10 @@ df2[,c("abc","xyz")]
 
 # Ejercicio 3
 var <- "mpg"
+mtcars[[var]]
 mtcars[,var]
-as_tibble(mtcars)[[var]]
-
+(as_tibble(mtcars))[[var]]
+(as_tibble(mtcars))[,var]
 #Ejercicio 4 
 df <- tibble(
   `1` = 1:12,
